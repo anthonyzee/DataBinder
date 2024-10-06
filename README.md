@@ -30,10 +30,10 @@ A lightweight JavaScript library for creating two-way data bindings between your
 
 ## Installation
 
-Include `fxAx.js` in your HTML file:
+Include `DataBinder.js` in your HTML file:
 
 \```html
-<script src="path/to/fxAx.js"></script>
+<script src="path/to/DataBinder.js"></script>
 \```
 
 Alternatively, you can download or clone the repository from GitHub and include the script manually.
@@ -124,7 +124,7 @@ Here's a simple example to demonstrate the usage of `DataBinder`:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DataBinder Example</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="fxAx.js"></script>
+    <script src="DataBinder.js"></script>
     <script>
         var dataBinder = new DataBinder();
         var model = {};
