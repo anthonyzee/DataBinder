@@ -145,7 +145,7 @@ var DataBinder = function () {
 			  if (observableList.isEditMode) {
 				
 				let oRowElement = document.getElementById(observableList.elementId + "-list").rows[propertyIndex + 2];
-				dataBinder.updateRow({ "a": 100, "b": 200, "c": 300 }, oRowElement); // update dom
+				dataBinder.updateRow(value, oRowElement); // update dom
 				observableList.isEditMode = false;
 				
 			  } else {
