@@ -143,9 +143,11 @@ var DataBinder = function () {
 			  cloneRow(value);
 			} else {
 			  if (observableList.isEditMode) {
-				const tableRow = elementList.querySelectorAll("#" + templateRowId)[propertyIndex];
-				self.updateRow(value, tableRow);
+				
+				let oRowElement = document.getElementById(observableList.elementId + "-list").rows[propertyIndex + 2];
+				dataBinder.updateRow({ "a": 100, "b": 200, "c": 300 }, oRowElement); // update dom
 				observableList.isEditMode = false;
+				
 			  } else {
 				if (lastMoveIndex > propertyIndex) {
 				  lastMoveIndex = propertyIndex;

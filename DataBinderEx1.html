@@ -35,10 +35,10 @@
 
         // Function to edit an existing row in the observable list
         var clickEdit = function () {
+            // set edit mode 
             modelObject.itemList(null,true)
-            let oRowElement = document.getElementById("l-itemList-list").rows[2]; // first row
+            // update 1st row
             modelObject.itemList().splice(0, 1, { "a": 100, "b": 200, "c": 300 }); // update model
-            dataBinder.updateRow({ "a": 100, "b": 200, "c": 300 }, oRowElement); // update dom
         };
 
         // Function to delete a row from the observable list
