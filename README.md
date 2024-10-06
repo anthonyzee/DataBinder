@@ -13,6 +13,7 @@ A lightweight JavaScript library for creating two-way data bindings between your
   - [Observable](#observable)
   - [Observable List](#observable-list)
   - [DataBinder Methods](#databinder-methods)
+- [DOM Binding](#dom-binding)
 - [Example Usage](#example-usage)
 - [License](#license)
 
@@ -111,6 +112,81 @@ Applies the bindings between the `modelObject` and HTML elements within the `roo
 \```javascript
 dataBinder.applyBindings(modelObject, document.getElementById("container"));
 \```
+
+
+# DOM Binding
+
+When using `DataBinder.js` for DOM binding, it's important to follow a specific class and ID naming convention to enable seamless integration with HTML elements. This section outlines the required naming patterns for observables and observable lists.
+
+## 1. Observable Binding
+For binding simple properties like text or input fields, ensure that the class of the HTML element starts with a `t-` prefix. This prefix is used to indicate that the element is bound to an observable property. The rest of the class name should match the name of the observable property in your JavaScript model.
+
+For example, if you have an observable called `titleText` in your model, your HTML element should look like this:
+
+```html
+<h1 class="t-titleText">Title</h1>
+```
+
+## 2. Observable List Binding
+When binding a list of items, additional naming conventions are required to handle dynamic table rows and lists.
+
+### Table Element
+- The `<table>` element should have an ID starting with the `l-` prefix and ending with the `-list` postfix.
+  
+For example, if you have an observable list called `itemList`, your table tag should be structured like this:
+
+```html
+<table id="l-itemList-list" class="table table-striped">
+```
+
+### Table Body (`<tbody>`) Element
+- The `<tbody>` tag that will hold the dynamic rows should have an ID starting with the `l-` prefix. This ID should match the base name of the observable list.
+
+For example:
+
+```html
+<tbody id="l-itemList">
+```
+
+### Table Row (`<tr>`) Element
+- The `<tr>` element used as a template row should have a class that starts with `l-` and ends with `-row`. This tells `DataBinder.js` that it’s a template row for the observable list items.
+
+For example:
+
+```html
+<tr id="l-itemList-row" class="d-none">
+```
+
+The class name for the row should include `d-none` to keep it hidden until dynamically cloned and populated by `DataBinder.js`.
+
+## Example Usage
+Here's a complete example demonstrating how to structure a table with an observable list called `itemList`:
+
+```html
+<table id="l-itemList-list" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Column A</th>
+            <th>Column B</th>
+            <th>Column C</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody id="l-itemList">
+        <!-- Template row for dynamically generated items -->
+        <tr id="l-itemList-row" class="d-none">
+            <td class="lt-a">1</td>
+            <td class="lt-b">2</td>
+            <td class="lt-c">3</td>
+            <td>
+                <button class="btn btn-danger" onclick="clickDelete(this);">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+```
+
+By following these naming conventions, `DataBinder.js` can correctly identify and bind your model's observable properties and lists to the corresponding HTML elements, ensuring dynamic updates and interactions.
 
 ## Example Usage
 
