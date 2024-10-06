@@ -33,9 +33,9 @@ A lightweight JavaScript library for creating two-way data bindings between your
 
 Include `DataBinder.js` in your HTML file:
 
-\```html
+```html
 <script src="path/to/DataBinder.js"></script>
-\```
+```
 
 Alternatively, you can download or clone the repository from GitHub and include the script manually.
 
@@ -63,13 +63,13 @@ Creates a new observable property that can be bound to HTML elements.
 
 **Example:**
 
-\```javascript
+```javascript
 var dataBinder = new DataBinder();
 var observableProperty = dataBinder.observable("Initial Value");
 
 observableProperty("Updated Value"); // Sets the value
 console.log(observableProperty());   // Gets the value
-\```
+```
 
 ### Observable List
 
@@ -84,11 +84,11 @@ Creates a new observable list that can be bound to a list of HTML elements, such
 
 **Example:**
 
-\```javascript
+```javascript
 var observableList = dataBinder.observableList([{ a: 1, b: 2 }, { a: 3, b: 4 }]);
 observableList().push({ a: 5, b: 6 }); // Adds a new item to the list
 observableList()[0] = { a: 10, b: 20 }; // Modifies the first item in the list
-\```
+```
 
 ### DataBinder Methods
 
@@ -109,9 +109,9 @@ Applies the bindings between the `modelObject` and HTML elements within the `roo
 
 **Example:**
 
-\```javascript
+```javascript
 dataBinder.applyBindings(modelObject, document.getElementById("container"));
-\```
+```
 
 
 # DOM Binding
@@ -192,7 +192,7 @@ By following these naming conventions, `DataBinder.js` can correctly identify an
 
 Here's a simple example to demonstrate the usage of `DataBinder`:
 
-\```html
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -244,7 +244,7 @@ Here's a simple example to demonstrate the usage of `DataBinder`:
     </div>
 </body>
 </html>
-\```
+```
 
 ## License
 
